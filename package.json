@@ -1,0 +1,71 @@
+{
+  "name": "@theothergothamdev/pancakeswap-v3-sdk",
+  "version": "0.0.1",
+  "description": "Nodejs SDK wrapper for Pancakeswap v3",
+  "author": "theothergothamdev",
+  "license": "MIT",
+  "homepage": "https://github.com/theothergothamdev/pancakeswap-v3-sdk-nodejs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theothergothamdev/pancakeswap-v3-sdk-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theothergothamdev/pancakeswap-v3-sdk-nodejs/issues"
+  },
+  "keywords": [],
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@pancakeswap/sdk": "^5.8.8",
+    "@pancakeswap/v3-sdk": "^3.8.11",
+    "@uniswap/v3-core": "^1.0.1",
+    "ethers": "^6.13.3"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.0",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20",
+    "typescript": "^5.6.2"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
+          "message": "release: ${nextRelease.version} \n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
