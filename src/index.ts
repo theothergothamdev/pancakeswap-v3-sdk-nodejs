@@ -56,6 +56,23 @@ export class PancakeSwapV3TokenSwap {
     return formatEther(balance);
   }
 
+  async approveToken(token: Token, amount: string, wallet: Wallet): Promise<void> {
+    const tokenContract = new Contract(token.address, ERC20_ABI, wallet);
+    const amountInWei = parseUnits(amount, token.decimals);
+
+    // Check current allowance
+    const currentAllowance = await tokenContract.allowance(wallet.address, this.swapRouterAddress);
+
+    // If the current allowance is less than the amount we want to approve, we proceed with approval
+    if (currentAllowance < amountInWei) {
+      const approvalTx = await tokenContract.approve(this.swapRouterAddress, amountInWei);
+      await approvalTx.wait(); // Wait for the transaction to be mined
+      console.log(`Approved ${amount} of ${token.symbol} for spender: ${this.swapRouterAddress}`);
+    } else {
+      console.log(`Sufficient allowance already set for ${token.symbol}.`);
+    }
+  }
+
   async simpleSwap(
     inputAmount: string,
     tokenIn: Token,
@@ -96,12 +113,7 @@ export class PancakeSwapV3TokenSwap {
     };
 
     const swapRouterContract = new Contract(this.swapRouterAddress, swapRouterABI, wallet);
-    const tokenInContract = new Contract(tokenIn.address, ERC20_ABI, wallet);
-
-    const allowance = await tokenInContract.allowance(wallet.address, this.swapRouterAddress);
-    if (allowance < amountInWei) {
-      await (await tokenInContract.approve(this.swapRouterAddress, amountInWei)).wait();
-    }
+    await this.approveToken(tokenIn, inputAmount, wallet);
 
     const { gasPrice } = await this.provider.getFeeData();
     if (!gasPrice) throw new Error("Failed to retrieve gas price");
