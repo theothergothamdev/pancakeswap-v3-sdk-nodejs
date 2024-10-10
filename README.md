@@ -5,7 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/@theothergothamdev/pancakeswap-v3-sdk.svg)](https://www.npmjs.com/package/@theothergothamdev/pancakeswap-v3-sdk)
 [![NPM downloads](https://img.shields.io/npm/dm/@theothergothamdev/pancakeswap-v3-sdk.svg)](https://www.npmjs.com/package/@theothergothamdev/pancakeswap-v3-sdk)
 
-![build](https://github.com/theothergothamdev/pancakeswap-v3-sdk/actions/workflows/build.yml/badge.svg)
+![build](https://github.com/theothergothamdev/pancakeswap-v3-sdk-nodejs/actions/workflows/build.yml/badge.svg)
 
 <!-- [END badges] -->
 
