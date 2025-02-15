@@ -1,7 +1,7 @@
 {
   "name": "@theothergothamdev/pancakeswap-v3-sdk",
   "version": "1.0.0",
-  "description": "Nodejs SDK wrapper for Pancakeswap v3",
+  "description": "Unofficial Nodejs SDK wrapper for Pancakeswap v3",
   "author": "theothergothamdev",
   "license": "MIT",
   "homepage": "https://github.com/theothergothamdev/pancakeswap-v3-sdk-nodejs#readme",
