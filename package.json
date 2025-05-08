@@ -22,21 +22,21 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@pancakeswap/sdk": "^5.8.8",
-    "@pancakeswap/v3-sdk": "^3.8.11",
+    "@pancakeswap/sdk": "^5.8.14",
+    "@pancakeswap/v3-sdk": "^3.9.3",
     "@uniswap/v3-core": "^1.0.1",
-    "ethers": "^6.13.3"
+    "ethers": "^6.14.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.0",
+    "@semantic-release/github": "^11.0.2",
     "@semantic-release/npm": "^12.0.1",
-    "@semantic-release/release-notes-generator": "^14.0.1",
-    "@tsconfig/node20": "^20.1.4",
-    "@types/node": "^20",
-    "typescript": "^5.6.2"
+    "@semantic-release/release-notes-generator": "^14.0.3",
+    "@tsconfig/node22": "^22.0.1",
+    "@types/node": "^22.15.16",
+    "typescript": "^5.8.3"
   },
   "release": {
     "branches": [
