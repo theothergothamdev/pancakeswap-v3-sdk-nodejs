@@ -40,8 +40,8 @@ export class PancakeSwapV3TokenSwap {
     return {
       value,
       invert: () => 1 / value,
-      token0: token0.symbol,
-      token1: token1.symbol,
+      token0: pool.token0.symbol,
+      token1: pool.token1.symbol,
     };
   }
 
